@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 from django.db import models
@@ -11,3 +12,12 @@ class Item_Inscricao(models.Model):
     cod_item  = models.IntegerField()
     cupom_cod_cupom = models.ForeignKey(Cupom,on_delete = models.CASCADE)
     cupom_evento_cod_evento = models.ForeignKey(Evento,on_delete=models.CASCADE)
+=======
+from django.db import models
+
+import Atividade, Evento, Inscricao,Cupom
+
+class Item_Inscricao(models.Model):
+    inscricao_cod = models.ForeignKey(Inscricao,on_delete = models.CASCADE)
+    atividade_cod = models.ForeignKey(Atividade,on_delete=models.CASCADE)
+>>>>>>> 342be8ee61a29c4d836d352fef99b4490bbee3d5

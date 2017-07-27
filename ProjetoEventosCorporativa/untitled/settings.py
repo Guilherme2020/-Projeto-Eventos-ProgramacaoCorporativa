@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'ProjetoEventos.apps.ProjetoeventosConfig',
     'ProjetoEventos.models',
+=======
+    'ProjetoEventos',
+>>>>>>> 342be8ee61a29c4d836d352fef99b4490bbee3d5
 ]
 
 MIDDLEWARE = [
