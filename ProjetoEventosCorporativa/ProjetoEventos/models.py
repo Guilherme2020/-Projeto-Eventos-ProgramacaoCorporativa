@@ -30,11 +30,6 @@ class Tipo_Evento(models.Model):
 	)
 	tipo = models.CharField(max_length=1, choices=TIPO_EVENTO_TYPE_CHOICES)
 
-class Cupom(models.Model):
-    cod_cupom = models.CharField(max_length=45)
-    desconto = models.IntegerField()
-    data_validade = models.DateField()
-
 class Evento(models.Model):
     evento_cod = models.CharField(max_length=45)
     nome = models.CharField(max_length=45)
@@ -43,8 +38,13 @@ class Evento(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
     data_inicio = models.DateField()
     data_fim = models.DateField()
-    cupoms = models.ManyToManyField(Cupom, null=True)
-    apoiadores = models.ManyToManyField(Apoio_Realizacao,null=False)
+
+class Cupom(models.Model):
+    evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
+    cod_cupom = models.CharField(max_length=45)
+    desconto = models.IntegerField()
+    data_validade = models.DateField()
+
 
 class Tipo_ApoioRealizacao(models.Model):
 	APOIO_TYPE_CHOICES = (
