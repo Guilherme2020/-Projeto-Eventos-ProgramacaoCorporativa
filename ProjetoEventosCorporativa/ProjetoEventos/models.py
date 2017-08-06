@@ -43,8 +43,8 @@ class Evento(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
     data_inicio = models.DateField()
     data_fim = models.DateField()
-    cupom = models.ForeignKey(Cupom, on_delete=models.CASCADE)
-    apoiadores = []
+    cupoms = models.ManyToManyField(Cupom, null=True)
+    apoiadores = models.ManyToManyField(Apoio_Realizacao,null=False)
 
 class Tipo_ApoioRealizacao(models.Model):
 	APOIO_TYPE_CHOICES = (
