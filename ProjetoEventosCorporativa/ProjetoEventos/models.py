@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+    # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
 
@@ -30,21 +30,18 @@ class Tipo_Evento(models.Model):
 	)
 	tipo = models.CharField(max_length=1, choices=TIPO_EVENTO_TYPE_CHOICES)
 
+class Cupom(models.Model):
+    cod_cupom = models.CharField(max_length=45)
+    desconto = models.IntegerField()
+    data_validade = models.DateField()
+
 class Evento(models.Model):
-    evento_cod = models.CharField(max_length=45)
     nome = models.CharField(max_length=45)
     tipo_evento = models.ForeignKey(Tipo_Evento, on_delete = models.CASCADE)
     estado_evento = models.ForeignKey(Estado_Evento, on_delete = models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
     data_inicio = models.DateField()
     data_fim = models.DateField()
-
-class Cupom(models.Model):
-    evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
-    cod_cupom = models.CharField(max_length=45)
-    desconto = models.IntegerField()
-    data_validade = models.DateField()
-
 
 class Tipo_ApoioRealizacao(models.Model):
 	APOIO_TYPE_CHOICES = (
@@ -54,7 +51,6 @@ class Tipo_ApoioRealizacao(models.Model):
 	tipo = models.CharField(max_length=1, choices=APOIO_TYPE_CHOICES)
 
 class Apoio_Realizacao(models.Model):
-    cod_apoio = models.CharField(max_length=5)
     instituicao_cod = models.ForeignKey(Instituicao,on_delete=models.CASCADE)
     evento_cod = models.ForeignKey(Evento,on_delete=models.CASCADE)
     tipo_ApoioRealizacao = models.ForeignKey(Tipo_ApoioRealizacao, on_delete=models.CASCADE)
