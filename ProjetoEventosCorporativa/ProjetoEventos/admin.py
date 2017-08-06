@@ -3,12 +3,10 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from ProjetoEventos.models import Usuario, Tipo_Evento, Item_Inscricao,Inscricao,Evento,Estado_Inscricao,Estado_Evento, Cupom, Atividade, Apoio_Realizacao, Tipo_Atividade, Tipo_ApoioRealizacao
-
-class Usuario_admin(admin.ModelAdmin):
-	pass    
+from models import *
 
 admin.site.register(Apoio_Realizacao)
+admin.site.register(Instituicao)
 admin.site.register(Atividade)
 admin.site.register(Cupom)
 admin.site.register(Estado_Evento)
